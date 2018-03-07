@@ -25,6 +25,7 @@ create table TbEmployee
   empName varchar(50) not null,
   password varchar(20) not null,
   sex enum('m','f') not null comment 'enmu取值范围',
+  salary decimal(10,2) not null,
   deptId int not null,
   foreign key(deptId) references TbDept(deptId) /*foreign key外键,必须是references后面指定列的数据*/  
 );
@@ -33,9 +34,12 @@ create table TbEmployee
 insert into TbDept(deptName,deptInfo) values('人事部','人员管理');
 insert into TbDept(deptName,deptInfo) values('销售部','推销东西');
 
-insert into TbEmployee(empName,password,sex,deptId) values('张三','abc123','m',1);
-insert into TbEmployee(empName,password,sex,deptId) values('李四','123456','m',1);
-insert into TbEmployee(empName,password,sex,deptId) values('Lisa','123456','f',2);
+insert into TbEmployee(empName,password,sex,salary,deptId) values('张三','abc123','m',1230.4,1);
+insert into TbEmployee(empName,password,sex,salary,deptId) values('李四','123456','m',2901.45,2);
+insert into TbEmployee(empName,password,sex,salary,deptId) values('Lisa','123456','f',1888.456,1);
+insert into TbEmployee(empName,password,sex,salary,deptId) values('test','test123','f',10000,2);
+insert into TbEmployee(empName,password,sex,salary,deptId) values('李龙','abc-123','m',6789.12,2);
+insert into TbEmployee(empName,password,sex,salary,deptId) values('Mary','111111','m',5012,2);
 
 /*基本查询*/
 select * from TbDept;
@@ -44,3 +48,9 @@ select * from TbEmployee;
 /*简单的联合查询*/
 select e.*,d.* from TbEmployee e
 inner join TbDept d on e.deptId=d.deptId;
+
+/*修改数据*/
+update TbEmployee set password='modi',sex='f' where empId=4;
+
+/*删除数据*/
+delete from TbEmployee where empId=4;
