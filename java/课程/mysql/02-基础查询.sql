@@ -36,3 +36,5 @@ select sex from TbEmployee
 group by sex;
 
 select distinct sex from TbEmployee;
+
+
