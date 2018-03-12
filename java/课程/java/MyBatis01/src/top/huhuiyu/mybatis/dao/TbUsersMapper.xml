@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.huhuiyu.mybatis.dao.TbUsersDAO">
+  <select id="queryAll" resultType="TbUsers">
+    select * from TbUsers
+  </select>
+
+  <insert id="add" useGeneratedKeys="true" keyProperty="uid" parameterType="TbUsers">
+    insert into TbUsers(username,password,nickname,phone) values(#{username},#{password},#{nickname},#{phone})
+  </insert>
+
+</mapper>
