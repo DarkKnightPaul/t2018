@@ -3,6 +3,8 @@ package top.huhuiyu.mybatis.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 public class TbUsers implements Serializable {
 
   private static final long serialVersionUID = -5015989615807031901L;
@@ -12,6 +14,7 @@ public class TbUsers implements Serializable {
   private String password;
   private String nickname;
   private String phone;
+  @JSONField(format="yyyy-MM-dd HH:mm:ss")
   private Date regDate;
 
   public TbUsers() {

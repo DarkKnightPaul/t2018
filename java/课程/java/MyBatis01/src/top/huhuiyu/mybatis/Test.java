@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.alibaba.fastjson.JSONObject;
+
 import top.huhuiyu.mybatis.dao.TbUsersDAO;
 import top.huhuiyu.mybatis.entity.TbUsers;
 
@@ -28,6 +30,7 @@ public class Test {
     System.out.println(users);
     List<TbUsers> list = dao.queryAll();
     System.out.println(list);
+    System.out.println(JSONObject.toJSON(list));
     session.close();
   }
 }
