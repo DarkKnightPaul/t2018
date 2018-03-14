@@ -12,4 +12,15 @@
     insert into TbUsers(username,password,nickname,phone) values(#{username},#{password},#{nickname},#{phone})
   </insert>
 
+  <delete id="delete" parameterType="TbUsers">
+    delete from TbUsers where uid=#{uid}
+  </delete>
+
+  <update id="modify" parameterType="TbUsers">
+    update TbUsers
+    set username=#{username},password=#{password}
+    ,nickname=#{nickname},phone=#{phone}
+    where uid=#{uid}
+  </update>
+
 </mapper>

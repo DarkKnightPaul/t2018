@@ -18,7 +18,7 @@ public class Test {
   public static void main(String[] args) throws Exception {
     SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder()
         .build(Resources.getResourceAsReader("mybatis-config.xml"));
-    SqlSession session = sqlSessionFactory.openSession();
+    SqlSession session = sqlSessionFactory.openSession(true);
     TbUsersDAO dao = session.getMapper(TbUsersDAO.class);
     TbUsers users = new TbUsers();
     Random random = new Random();
@@ -31,6 +31,11 @@ public class Test {
     List<TbUsers> list = dao.queryAll();
     System.out.println(list);
     System.out.println(JSONObject.toJSON(list));
+    users = list.get(0);
+    users.setNickname("testmodify");
+    dao.modify(users);
+    users = list.get(1);
+    dao.delete(users);
     session.close();
   }
 }
