@@ -15,4 +15,10 @@ public interface TbUsersDAO {
   int delete(TbUsers users) throws Exception;
 
   int modify(TbUsers users) throws Exception;
+  
+  int count() throws Exception;
+  
+  TbUsers check(TbUsers users) throws Exception;
+  
+  
 }

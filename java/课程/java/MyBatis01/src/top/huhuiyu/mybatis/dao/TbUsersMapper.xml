@@ -23,4 +23,12 @@
     where uid=#{uid}
   </update>
 
+  <select id="count" resultType="int">
+    select count(*) from TbUsers
+  </select>
+
+  <select id="check" resultType="TbUsers" parameterType="TbUsers">
+    select * from TbUsers where username=#{username} and password=#{password}
+  </select>
+
 </mapper>

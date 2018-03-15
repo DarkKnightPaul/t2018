@@ -1,8 +1,8 @@
 /*创建数据库*/
 use mysql;
-drop database if exists mybatis;
-create database mybatis default charset utf8 collate utf8_general_ci;
-use mybatis;
+drop database if exists tmybatis;
+create database tmybatis default charset utf8 collate utf8_general_ci;
+use tmybatis;
 /*创建数据表*/
 create table TbUsers
 (

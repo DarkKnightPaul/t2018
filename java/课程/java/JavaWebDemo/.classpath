@@ -13,8 +13,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/MyBatisT01/files/fastjson-1.2.46.jar"/>
-	<classpathentry kind="lib" path="/MyBatisT01/files/mybatis-3.4.6.jar"/>
-	<classpathentry kind="lib" path="/MyBatisT01/files/mysql-connector-java-6.0.6.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
