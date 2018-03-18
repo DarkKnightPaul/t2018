@@ -18,3 +18,15 @@ create table TbUsers
 insert into TbUsers(username,password,nickname,phone) values('admin','adm-123','内置用户','1234567890');
 
 select * from TbUsers;
+
+/*创建新闻信息表*/
+create table TbNews
+(
+ 	nid int auto_increment primary key not null comment '新闻编号,主键',
+ 	title  varchar(50) not null comment '新闻标题',
+ 	content varchar(500) not null comment '新闻内容',
+ 	created timestamp  default now() not null comment '发布时间'
+);
+
+select * from TbNews;
+

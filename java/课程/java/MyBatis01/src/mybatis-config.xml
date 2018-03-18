@@ -21,5 +21,6 @@
   </environments>
   <mappers>
     <mapper resource="top/huhuiyu/mybatis/dao/TbUsersMapper.xml" />
+    <mapper resource="top/huhuiyu/mybatis/dao/TbNewsMapper.xml" />
   </mappers>
 </configuration>
