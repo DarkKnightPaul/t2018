@@ -27,10 +27,18 @@ public class LoginServlet extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     try {
-      SqlSession sqlSession = DaoUtil.getDaoUtil().getSqlSession();
-      TbUsersDAO dao = sqlSession.getMapper(TbUsersDAO.class);
       String username = req.getParameter("username");
       String password = req.getParameter("password");
+      if (username == null || username.trim().equals("")) {
+        resp.getWriter().println("用户名必须填写.");
+        return;
+      }
+      if (password == null || password.trim().equals("")) {
+        resp.getWriter().println("密码必须填写.");
+        return;
+      }
+      SqlSession sqlSession = DaoUtil.getDaoUtil().getSqlSession();
+      TbUsersDAO dao = sqlSession.getMapper(TbUsersDAO.class);
       TbUsers users = new TbUsers();
       users.setUsername(username);
       users.setPassword(password);
