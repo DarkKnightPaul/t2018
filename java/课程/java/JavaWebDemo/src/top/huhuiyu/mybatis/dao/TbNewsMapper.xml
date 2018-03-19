@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.huhuiyu.mybatis.dao.TbNewsDAO">
+  <select id="queryAll" resultType="TbNews">
+    select * from TbNews
+  </select>
+
+  <insert id="add" useGeneratedKeys="true" keyProperty="nid" parameterType="TbNews">
+    insert into TbNews(title,content) values(#{title},#{content})
+  </insert>
+
+  <delete id="delete" parameterType="TbNews">
+    delete from TbNews where nid=#{nid}
+  </delete>
+
+  <update id="modify" parameterType="TbNews">
+    update TbNews set title=#{title},content=#{content} where nid=#{nid}
+  </update>
+
+  <select id="count" resultType="int">
+    select count(*) from TbNews
+  </select>
+
+</mapper>
