@@ -1,6 +1,6 @@
 function trim(str) {
   if (str) {
-    str = str.replace(/(^\s*)|(\s*$)/);
+    str = str.replace(/(^\s*)|(\s*$)/g, '');
   }
   return str;
 }
