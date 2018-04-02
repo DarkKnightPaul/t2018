@@ -5,7 +5,7 @@
     <title>js基础3</title>
   </head>
   <body>
-    <div>     
+    <div>
       <input type="checkbox" id="chkAll" onchange="checkAllInterest()">全选
       <input type="checkbox" id="chkReverse" onchange="reverseInterest()">反选
       <input type="checkbox" name="interest">游戏
@@ -14,8 +14,39 @@
       <input type="checkbox" name="interest">篮球
       <span id="spTime"></span>
     </div>
-    
-
+    <div>
+      <h1 style="text-align: center;">商品录入模拟(dom操作总结)</h1>
+      
+      <p style="text-align: center;">
+        <label>商品名称：<input type="text" id="txtGname" placeholder="请输入商品名称"></label>
+        <label>商品单价：<input type="text" id="txtPrice" placeholder="请输入商品单价"></label>
+        <label>商品数量：<input type="text" id="txtAmount" placeholder="请输入商品数量"></label>
+      </p>
+      <p style="text-align: center;">
+        <label>商品描述：<textarea id="txtInfo" cols="80" rows="5"></textarea></label>
+      </p>
+      <p style="text-align: center;">
+        <button onclick="addGoods()">添加</button>
+        <button onclick="resetForm()">重填</button>
+      </p>
+      <div id="divError" style="color: red;text-align: center;"></div>
+    </div>
+    <table style="width: 100%;">
+      <tbody id="tbData">
+        <tr>
+          <th>商品名称</th>
+          <th>商品单价</th>
+          <th>商品数量</th>
+          <th>商品描述</th>
+        </tr>
+        <tr>
+          <td>演示参考行</td>
+          <td>110.10</td>
+          <td>300</td>
+          <td>这一行的数据是给添加dom演示的范本</td>
+        </tr>
+      </tbody>
+    </table>
     <script type="text/javascript" src="js03.js"></script>
   </body>
 </html>
