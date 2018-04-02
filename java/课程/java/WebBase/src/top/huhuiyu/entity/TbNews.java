@@ -3,12 +3,15 @@ package top.huhuiyu.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 public class TbNews implements Serializable {
   private static final long serialVersionUID = -3226997557577856842L;
 
   private int nid;
   private String title;
   private String content;
+  @JSONField(format="yyyy-MM-dd HH:mm:ss")
   private Date created;
 
   public TbNews() {

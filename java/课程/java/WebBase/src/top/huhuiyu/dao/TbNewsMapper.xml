@@ -9,4 +9,7 @@
     insert into TbNews(title,content)
       values(#{title},#{content})
   </insert>
+  <select id="queryAll" resultType="TbNews">
+    select * from TbNews
+  </select>
 </mapper>
