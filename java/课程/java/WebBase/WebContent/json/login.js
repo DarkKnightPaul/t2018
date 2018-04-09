@@ -1,19 +1,15 @@
 $(function() {
 
-  $('#btnLogin').click(function() {
-    location.href = 'login.html';
+  $('#btnReg').click(function() {
+    location.href = 'reg.html';
   });
 
-  $('#btnReg').click(function() {
+  $('#btnLogin').click(function() {
     var txtUsername = $('#txtUsername');
     var txtPassword = $('#txtPassword');
-    var txtPassword1 = $('#txtPassword1');
-    var txtNickname = $('#txtNickname');
 
     var username = txtUsername.val();
     var password = txtPassword.val();
-    var password1 = txtPassword1.val();
-    var nickname = txtNickname.val();
 
     var divError = $('#divError');
     divError.html('');
@@ -27,31 +23,20 @@ $(function() {
       txtPassword.focus();
       return;
     }
-    if (password1 != password) {
-      divError.html('密码和确认密码不一致');
-      txtPassword1.focus();
-      return;
-    }
-    if (nickname == '') {
-      divError.html('昵称必须填写');
-      txtNickname.focus();
-      return;
-    }
 
-    $.post('reg.servlet', {
+    $.post('login.servlet', {
       'username': username,
-      'password': password,
-      'nickname': nickname
+      'password': password
     }, function(data) {
       console.log(data);
       if (data.message) {
-        alert(data.message);
+        alert(data.message + '\r\n欢迎' + data.user.nickname);
+        location.href = 'data.html';
       } else if (data.error) {
         $('#divError').html(data.error);
       } else {
         $('#divError').html(data);
       }
-
     }, 'json');
 
   });
