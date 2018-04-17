@@ -20,6 +20,7 @@ import top.huhuiyu.forum.entity.TbUser;
 public class LoginServlet extends HttpServlet {
 
   private static final long serialVersionUID = -1080164854791559616L;
+  public static final String SESSION_USER_KEY = "login_user";
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -42,6 +43,9 @@ public class LoginServlet extends HttpServlet {
       if (user == null) {
         json.put("error", "用户名或者密码错误，登录失败");
       } else {
+        user.setPassword("*******");//去掉密码
+        // 放置用户信息到Session中
+        req.getSession().setAttribute(SESSION_USER_KEY, user);
         json.put("user", user);
       }
     } catch (Exception ex) {
