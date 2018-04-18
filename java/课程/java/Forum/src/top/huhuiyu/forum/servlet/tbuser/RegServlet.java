@@ -16,11 +16,10 @@ import top.huhuiyu.forum.dao.DaoUtil;
 import top.huhuiyu.forum.dao.TbUserDAO;
 import top.huhuiyu.forum.entity.TbUser;
 
-@WebServlet(name = "LoginServlet", urlPatterns = "/login.servlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "RegServlet", urlPatterns = "/reg.servlet")
+public class RegServlet extends HttpServlet {
 
-  private static final long serialVersionUID = -1080164854791559616L;
-  public static final String SESSION_USER_KEY = "login_user";
+  private static final long serialVersionUID = -5067903025640036107L;
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,25 +32,23 @@ public class LoginServlet extends HttpServlet {
     try {
       String username = req.getParameter("username");
       String password = req.getParameter("password");
+      String nickname = req.getParameter("nickname");
       TbUser user = new TbUser();
       user.setUsername(username);
       user.setPassword(password);
+      user.setNickname(nickname);
+
       SqlSession sqlSession = DaoUtil.getUtil().getSession();
       TbUserDAO dao = sqlSession.getMapper(TbUserDAO.class);
-      user = dao.login(user);
+      dao.add(user);
       sqlSession.close();
-      if (user == null) {
-        json.put("error", "用户名或者密码错误，登录失败");
-      } else {
-        user.setPassword("*******");//去掉密码
-        // 放置用户信息到Session中
-        req.getSession().setAttribute(SESSION_USER_KEY, user);
-        json.put("user", user);
-      }
+      json.put("message", "注册成功");
+
     } catch (Exception ex) {
       json.put("error", ex.getMessage());
     }
     resp.getWriter().println(json.toString());
+
   }
 
 }
