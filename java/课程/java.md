@@ -2,4 +2,5 @@
 ## [根目录](java)  
 ## [mybatis入门](java/MyBatis01)  
 ## [javaweb入门](java/JavaWebDemo)  
+## [简易论坛](java/Forum)  
 ## [Web基础](java/WebBase)  
