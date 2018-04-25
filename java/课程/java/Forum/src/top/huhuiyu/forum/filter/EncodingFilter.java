@@ -27,6 +27,12 @@ public class EncodingFilter implements Filter {
     HttpServletResponse response = (HttpServletResponse) resp;
     request.setCharacterEncoding("UTF-8");
     response.setCharacterEncoding("UTF-8");
+    // 跨域配置
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    response.setHeader("Access-Control-Allow-Methods", "*");
+    response.setHeader("Access-Control-Allow-Headers", "x-requested-with, Content-Type");
+    response.setHeader("Access-Control-Allow-Credentials", "true");
+
     chain.doFilter(req, resp);
   }
 

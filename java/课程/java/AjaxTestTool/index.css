@@ -1,0 +1,27 @@
+span {
+  color: blue;
+}
+
+.text {
+  color: black;
+}
+
+.key {
+  color: red;
+}
+
+.string {
+  color: fuchsia;
+}
+
+.number {
+  color: green;
+}
+
+.boolean {
+  color: maroon;
+}
+
+.null {
+  color: gray;
+}

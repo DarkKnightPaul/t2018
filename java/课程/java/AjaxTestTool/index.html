@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ajax测试工具</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    
+    <div id="divVue">
+      <h1 style="text-align: center;">{{welcome}}</h1>
+      <div style="text-align: center;">
+        <label>请选择服务器：
+          <select v-model="selected">
+            <option v-for="s in servers" v-bind:value="s">{{s}}</option>
+          </select>
+        </label>
+        <label>请输入请求的路径：
+          <input v-model="path" type="text">
+        </label>
+        <hr>
+        <label>请输入发送的json：
+          <textarea v-model="sendinfo" rows="3" cols="80"></textarea>
+        </label>
+        <button type="button" v-on:click="send">发送</button>
+      </div>
+      <hr />
+      <div>{{geturl}}</div>
+      <hr />
+      <div>{{result}}</div>
+      <hr />
+      <div>
+      <pre v-html="fresult"></pre>
+      <pre v-html="error"></pre>
+    </div>
+  </div>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="vue.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
