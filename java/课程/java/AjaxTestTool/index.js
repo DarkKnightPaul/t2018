@@ -59,7 +59,9 @@
           app.error = "";
           var url = this.selected + this.path;
           var sendData = JSON.parse(this.sendinfo);
-          this.geturl = "get提交的url：" + (url + "?" + parseParam(sendData));
+          var querystr = parseParam(sendData);
+          querystr = querystr == "" ? "" : "?" + querystr;
+          this.geturl = "get提交的url：" + (url + querystr);
           $.post(url, sendData, function(data) {
             app.$data.result = data;
             app.$data.fresult = formatJson(JSON.stringify(data));

@@ -21,6 +21,7 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="top/huhuiyu/forum/dao/TbUserMapper.xml"/>
+    <mapper resource="top/huhuiyu/forum/dao/TbUserMapper.xml" />
+    <mapper resource="top/huhuiyu/forum/dao/TbGoodsMapper.xml" />
   </mappers>
 </configuration>
