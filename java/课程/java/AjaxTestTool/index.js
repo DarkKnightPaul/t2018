@@ -45,7 +45,9 @@
       el: "#divVue",
       data: {
         welcome: "欢迎使用ajax测试工具，测试的服务器必须支持跨域",
-        servers: ["http://127.0.0.1:8080/Forum"],
+        servers: [
+          "http://127.0.0.1:8080/Forum"
+        ],
         selected: "http://127.0.0.1:8080/Forum",
         path: "",
         sendinfo: "{}",
