@@ -11,9 +11,9 @@ import top.huhuiyu.springboot.model.GoodsModel;
 import top.huhuiyu.springboot.util.JsonMessage;
 
 @RestController
-@RequestMapping("/goods")
-public class GoodsController {
-  private static final Logger LOG = LoggerFactory.getLogger(GoodsController.class);
+@RequestMapping("/json")
+public class JsonController {
+  private static final Logger LOG = LoggerFactory.getLogger(JsonController.class);
 
   @RequestMapping("/echo")
   @ResponseBody
