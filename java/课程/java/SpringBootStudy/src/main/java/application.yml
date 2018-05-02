@@ -6,3 +6,10 @@ spring:
       enabled: true
 server:
   port: 13000
+logging:
+  level:
+    top:
+      huhuiyu: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level%logger{36}%n\\t%msg%n"
+#  file: huhuiyu.log
