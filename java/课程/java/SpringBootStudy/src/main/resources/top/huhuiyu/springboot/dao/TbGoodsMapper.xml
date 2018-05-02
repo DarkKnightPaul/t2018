@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- dao/TbNewsMapper.xml -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.huhuiyu.springboot.dao.TbGoodsDAO">
+  <insert id="add" parameterType="TbGoods" useGeneratedKeys="true" keyProperty="gid">
+    insert into TbGoods(gname,ginfo,price,amount,sellprice) values(#{gname},#{ginfo},#{price},#{amount},#{sellprice})
+  </insert>
+
+  <select id="query" resultType="TbGoods">
+    select * from TbGoods
+  </select>
+
+  <delete id="delete" parameterType="TbGoods">
+    delete from TbGoods where gid=#{gid}
+  </delete>
+
+  <select id="queryByKey" parameterType="TbGoods" resultType="TbGoods">
+    select * from TbGoods where gid=#{gid}
+  </select>
+
+  <update id="modify" parameterType="TbGoods">
+    update TbGoods set gname=#{gname},ginfo=#{ginfo},price=#{price},amount=#{amount},sellprice=#{sellprice}
+    where gid=#{gid}
+  </update>
+
+</mapper>
