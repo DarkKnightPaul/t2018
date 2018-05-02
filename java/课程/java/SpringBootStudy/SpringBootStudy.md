@@ -25,7 +25,7 @@
 ![步骤十二](images/12.jpg)  
 ## 文件位置和名称   
 ![步骤十三](images/13.jpg)  
-## 配置文件内容[配置文件](src/main/java/application.yml)  
+## 配置文件内容[配置文件](src/main/resources/application.yml)  
 ![步骤十四](images/14.jpg)  
 ## 编写测试控制器   
 ![步骤十五](images/15.jpg)  
