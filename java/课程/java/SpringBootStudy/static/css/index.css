@@ -1,0 +1,8 @@
+.myflex {
+  display: flex;
+  width: 500px;
+  margin: 0px auto;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
+}
