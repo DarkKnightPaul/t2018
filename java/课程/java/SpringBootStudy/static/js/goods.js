@@ -61,6 +61,17 @@ $(function() {
           td = $(document.createElement('td'));
           td.append(v.sellprice);
           tr.append(td);
+          td = $(document.createElement('td'));
+          td.attr('class', 'text-center');
+          var span = $(document.createElement('span'));
+          span.append('修改');
+          span.attr('class', 'btn btn-primary');
+          td.append(span);
+          span = $(document.createElement('span'));
+          span.append('删除');
+          span.attr('class', 'btn btn-danger');
+          td.append(span);
+          tr.append(td);
           tbData.append(tr);
           console.log(tbData.html());
         });
