@@ -15,7 +15,7 @@ public class MyHandlerInterceptor implements HandlerInterceptor {
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
     LOG.debug("MyHandlerInterceptor.preHandle----->");
-    //Thread.sleep(2000);
+    // Thread.sleep(2000);
     return true;
   }
 
