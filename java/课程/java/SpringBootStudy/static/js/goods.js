@@ -10,6 +10,9 @@ $(function() {
   });
 
   $('#btnAdd').click(function() {
+    $('#waitInfo').html('添加商品信息中，请稍候。。。');
+    $('#waitDialog').modal('show');
+
     $.post('http://127.0.0.1:13000/goods/add', {
       'gname': $('#txtGname').val(),
       'ginfo': $('#txtGinfo').val(),
@@ -17,6 +20,7 @@ $(function() {
       'amount': $('#txtAmount').val(),
       'sellprice': $('#txtSellprice').val()
     }, function(data) {
+      $('#waitDialog').modal('hide');
       alert(data.message);
       if (data.success) {
         $('#addDialog').modal('hide');
@@ -35,8 +39,11 @@ $(function() {
   }
 
   function query() {
+    $('#waitInfo').html('查询商品信息中，请稍候。。。');
+    $('#waitDialog').modal('show');
     $.post('http://127.0.0.1:13000/goods/queryAll', {}, function(data) {
       if (data.success) {
+        $('#waitDialog').modal('hide');
         console.log(data.datas.list);
         var tbData = $('#tdData');
         tbData.html('');
@@ -70,6 +77,12 @@ $(function() {
           span = $(document.createElement('span'));
           span.append('删除');
           span.attr('class', 'btn btn-danger');
+          //删除事件处理
+          span.click(function() {
+            deleteGoods(v);
+          });
+
+
           td.append(span);
           tr.append(td);
           tbData.append(tr);
@@ -81,6 +94,26 @@ $(function() {
     }, 'json');
   }
 
+  function deleteGoods(g) {
+    console.log(g);
+    $('#deleteId').val(g.gid);
+    $('#deleteInfo').html('是否删除商品：' + g.gname + '(' + g.gid + ')?');
+    $('#deleteDialog').modal('show');
+  }
+
+  $('#btnDelete').click(function() {
+    $('#deleteDialog').modal('hide');
+    $('#waitInfo').html('删除商品信息中，请稍候。。。');
+    $('#waitDialog').modal('show');
+    $.post('http://127.0.0.1:13000/goods/delete', {
+      'gid': $('#deleteId').val()
+    }, function(data) {
+      $('#waitDialog').modal('hide');
+      alert(data.message);
+      query();
+    }, 'json');
+
+  });
 
   query();
 });
