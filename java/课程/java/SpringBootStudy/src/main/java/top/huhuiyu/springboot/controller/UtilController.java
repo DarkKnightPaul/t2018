@@ -15,7 +15,6 @@ import top.huhuiyu.springboot.util.ImageCode;
 public class UtilController {
 
   @RequestMapping("/code.jpg")
-  
   public void codeImage(HttpServletResponse response) throws Exception {
     String code = ImageCode.makeCode();
     BufferedImage image = ImageCode.makeImage(code);
