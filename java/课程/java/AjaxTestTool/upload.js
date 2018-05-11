@@ -1,13 +1,12 @@
 (function() {
-  var server = "http://localhost:6286";
-  var url = server + "/Test/File";
-
+  var server = "http://127.0.0.1:10000";
+  var url = server + "/demo/upload";
 
 
   $("#btnUpload").click(function() {
     var formData = new FormData();
     formData.append("file", $("#uploadfile")[0].files[0]);
-    formData.append("PageInfo.PageNumber", 10);
+    formData.append("test.tid", 10);
     $.ajax({
       url: url,
       type: "POST",
@@ -18,12 +17,11 @@
       processData: false,
       success: function(data) {
         console.log("success:", data);
-        if (data.Success) {
-          $("#uploadimg").attr("src", server + data.ServerMessage);
-        }
+        $('#divResult').html(JSON.stringify(data));
       },
       error: function(data) {
         console.log("error:", data);
+        $('#divResult').html(JSON.stringify(data));
       }
     });
 
