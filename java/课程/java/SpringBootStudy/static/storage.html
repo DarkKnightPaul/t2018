@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SpringBoot前端项目</title>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/storage.css">
+  </head>
+  <body>
+    <div class="text-right p10"><a href="index.html" class="btn btn-info">返回首页</a></div>
+    <div class="divMain">
+      <div class="text-center">
+        <span class="btn btn-primary" id="btnClear">清除本地存储数据</span>
+        <span class="btn btn-primary" id="btnRefersh">刷新页面</span>
+        <span class="btn btn-primary" id="btnJson">json和字符串转换</span>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">本地存储：</span>
+          <input type="text" id="txtStorage" class="form-control">
+          <span class="input-group-addon btn btn-default" id="btnSave">保存</span>
+        </div>
+      </div>
+       <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">会话级别本地存储：</span>
+          <input type="text" id="txtSessionStorage" class="form-control">
+          <span class="input-group-addon btn btn-default" id="btnSaveSession">保存</span>
+        </div>
+      </div>
+      <div class="text-danger text-center" id="divInfo"></div>
+    </div>
+
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/storage.js"></script>
+  </body>
+</html>
