@@ -2,24 +2,37 @@ $(function() {
   console.log('商品管理...');
 
   $('#addDialog').on('shown.bs.modal', function(e) {
+    $('#txtGname').focus();
+  });
+
+  $('#addDialog').on('hidden.bs.modal', function(e) {
     resetAdd();
   });
 
   $('#btnShowAdd').click(function() {
+    $('#addTitle').html('商品信息添加');
     $('#addDialog').modal('show');
   });
 
   $('#btnAdd').click(function() {
-    $('#waitInfo').html('添加商品信息中，请稍候。。。');
+    $('#waitInfo').html('商品信息处理中，请稍候。。。');
     $('#waitDialog').modal('show');
-
-    $.post('http://127.0.0.1:13000/goods/add', {
+    var gid = $('#txtGid').val();
+    var url = 'http://127.0.0.1:13000/goods/add';
+    var params = {
       'gname': $('#txtGname').val(),
       'ginfo': $('#txtGinfo').val(),
       'price': $('#txtPrice').val(),
       'amount': $('#txtAmount').val(),
       'sellprice': $('#txtSellprice').val()
-    }, function(data) {
+    };
+    if (gid && gid != '') {
+      url = 'http://127.0.0.1:13000/goods/modify';
+      params.gid = gid;
+    }
+    console.log(url, '-', gid);
+
+    $.post(url, params, function(data) {
       $('#waitDialog').modal('hide');
       alert(data.message);
       if (data.success) {
@@ -30,12 +43,12 @@ $(function() {
   });
 
   function resetAdd() {
+    $('#txtGid').val('');
     $('#txtGname').val('');
     $('#txtGinfo').val('');
     $('#txtPrice').val('');
     $('#txtAmount').val('');
     $('#txtSellprice').val('');
-    $('#txtGname').focus();
   }
 
   function query() {
@@ -73,7 +86,12 @@ $(function() {
           var span = $(document.createElement('span'));
           span.append('修改');
           span.attr('class', 'btn btn-primary');
+          //修改事件处理
+          span.click(function() {
+            modifyGoods(v);
+          });
           td.append(span);
+
           span = $(document.createElement('span'));
           span.append('删除');
           span.attr('class', 'btn btn-danger');
@@ -81,8 +99,6 @@ $(function() {
           span.click(function() {
             deleteGoods(v);
           });
-
-
           td.append(span);
           tr.append(td);
           tbData.append(tr);
@@ -93,6 +109,19 @@ $(function() {
       }
     }, 'json');
   }
+
+  function modifyGoods(g) {
+    $('#txtGid').val(g.gid);
+    $('#txtGname').val(g.gname);
+    $('#txtGinfo').val(g.ginfo);
+    $('#txtPrice').val(g.price);
+    $('#txtAmount').val(g.amount);
+    $('#txtSellprice').val(g.sellprice);
+    $('#addTitle').html('商品信息修改');
+    $('#addDialog').modal('show');
+  }
+
+
 
   function deleteGoods(g) {
     console.log(g);

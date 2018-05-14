@@ -58,11 +58,11 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">添加商品</h4>
+              <h4 class="modal-title" id="addTitle">添加商品</h4>
             </div>
-            
             <div class="modal-body">
               <div>
+                <input type="hidden" id="txtGid">
                 <div class="form-group">
                   <div class="input-group">
                     <span class="input-group-addon">商品名称</span>
@@ -97,7 +97,7 @@
             </div>
             
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" id="btnAdd">添加</button>
+              <button type="button" class="btn btn-primary" id="btnAdd">保存</button>
               <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
             </div>
           </div>
