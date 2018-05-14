@@ -48,4 +48,47 @@ $(function() {
 
     });
 
+    //服务器数据交换
+    $('#btnGet').click(function() {
+        $('#divInfo').html('数据获取中。。。');
+        $.post('http://127.0.0.1:13000/storage/get', {}, function(data) {
+
+            if (data.success) {
+                sessionStorage.myid = data.datas.myid;
+                sessionStorage.goods = JSON.stringify(data.datas.goods);
+                $('#divInfo').html(data.message + '<br>myid:' + data.datas.myid + '<br>goods:' + JSON.stringify(data.datas.goods));
+                return;
+            }
+            $('#divInfo').html('数据获取失败:' + data.message);
+        }, 'json');
+
+    });
+
+    $('#btnSend').click(function() {
+        $('#divInfo').html('数据发送中。。。');
+
+        var myid = sessionStorage.myid;
+        var goods = sessionStorage.goods;
+        if (goods) {
+            goods = JSON.parse(goods);
+        }
+
+        $.post('http://127.0.0.1:13000/storage/send', {
+            "uuid": myid,
+            "goods.gname": goods.gname,
+            "goods.gid": goods.gid
+        }, function(data) {
+            if (data.success) {
+                sessionStorage.myid = data.datas.myid;
+                sessionStorage.goods = JSON.stringify(data.datas.goods);
+                $('#divInfo').html(data.message + '<br>myid:' + data.datas.myid + '<br>goods:' + JSON.stringify(data.datas.goods));
+                return;
+            }
+            $('#divInfo').html('发送获取失败:' + data.message);
+        }, 'json');
+
+    });
+
+
+
 });
