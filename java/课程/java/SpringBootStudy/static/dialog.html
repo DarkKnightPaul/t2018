@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SpringBoot前端项目</title>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+  </head>
+  <body>
+    <!-- 通用对话框开始 -->
+    <div>
+      <!-- 等待对话框 -->
+      <div class="modal fade" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="wait-dialog" style="z-index: 1999;">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="wait-dialog-title"></h4>
+            </div>
+            <div class="modal-body">
+              <div>
+                <div id="wait-dialog-info" class="h4 text-center"></div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <!-- 等待对话框结束 -->
+      <!-- 确定对话框 -->
+      <div class="modal fade" role="dialog" tabindex="-1" id="alert-dialog" style="z-index: 1998;">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="alert-dialog-title"></h4>
+            </div>
+            <div class="modal-body">
+              <div>
+                <div id="alert-dialog-info" class="h4 text-center"></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <span class="btn btn-primary" data-dismiss="modal">确定</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 确定对话框结束 -->
+
+      <!-- 确认对话框 -->
+      <div class="modal fade" role="dialog" data-keyboard="false" data-backdrop="false" tabindex="-1" id="confirm-dialog" style="z-index: 1997;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="confirm-dialog-title"></h4>
+            </div>
+            <div class="modal-body">
+              <div>
+                <div id="confirm-dialog-info" class="h4 text-center"></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <span class="btn btn-primary" id="confirm-dialog-yes">是</span>
+              <span class="btn btn-primary" id="confirm-dialog-no">否</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 确认对话框结束 -->
+      
+    </div>
+    <!-- 通用对话框结束 -->
+    <div style="width: 800px;margin: 0px auto;">
+      <span class="btn btn-primary" id='btnDialog1'>默认等待对话框</span>
+      <span class="btn btn-primary" id='btnDialog2'>带回掉的等待对话框</span>
+      <span class="btn btn-primary" id='btnDialog3'>默认确定对话框</span>
+      <span class="btn btn-primary" id='btnDialog4'>带回掉的确定对话框</span>
+      <span class="btn btn-primary" id='btnDialog5'>自动关闭确定对话框</span>
+      <span class="btn btn-primary" id='btnDialog6'>确认对话框</span>
+      <span class="btn btn-primary" id='btnDialog7'>自动关闭确认对话框</span>
+    </div>
+    <!--通用对话框演示部分 -->
+    
+    
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bs-dialog.js"></script>
+    <script type="text/javascript" src="js/dialog.js"></script>
+  </body>
+</html>
