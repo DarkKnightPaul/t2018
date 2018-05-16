@@ -102,4 +102,38 @@ $(function() {
     mydialog.hideConfirm = confirmDialog.hide;
 
 
+    /* 自定义对话框部分 */
+    var customDialog = {
+        title: '自定义对话框',
+        cb: emptyfn,
+        parentEl: '',
+        el: '',
+        dialog: $('#custom-dialog')
+    };
+
+    customDialog.show = function(el, title, cb) {
+        customDialog.title = title;
+        cb ? customDialog.cb = cb : customDialog.cb = emptyfn;
+        $('#custom-dialog-title').html(customDialog.title);
+
+        customDialog.parentEl = el.parent();
+        customDialog.el = el;
+        el.appendTo('#custom-dialog-body');
+        el.show();
+        customDialog.dialog.modal('show');
+    };
+
+    customDialog.hide = function() {
+        customDialog.dialog.modal('hide');
+    };
+
+    customDialog.dialog.on('hidden.bs.modal', function() {
+        customDialog.el.hide();
+        customDialog.el.appendTo(customDialog.parentEl);
+        customDialog.cb();
+    });
+
+    mydialog.showCustom = customDialog.show;
+    mydialog.hideCustom = customDialog.hide;
+
 });

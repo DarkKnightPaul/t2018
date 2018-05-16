@@ -61,4 +61,20 @@ $(function() {
         }, 3000);
     });
 
+    $('#btnDialog8').click(function() {
+        mydialog.showCustom($('#divCustom1'), '自定义对话框1', function() {
+            mydialog.showAlert('自定义对话框关闭', '信息对话框');
+        });
+    });
+
+    $('#btnDialog9').click(function() {
+        mydialog.showCustom($('#divCustom2'), '自定义对话框2', function() {
+            mydialog.showAlert('自定义对话框关闭', '信息对话框');
+        });
+    });
+
+    $('#btnCustomOk1,#btnCustomOk2').click(function() {
+        mydialog.hideCustom();
+    });
+
 });
